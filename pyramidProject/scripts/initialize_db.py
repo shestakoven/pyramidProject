@@ -5,7 +5,7 @@ import sys
 from pyramid.paster import bootstrap, setup_logging
 from sqlalchemy.exc import OperationalError
 
-from .. import models
+from ..models import models
 
 
 def setup_models(dbsession):
@@ -13,12 +13,17 @@ def setup_models(dbsession):
     Add or update models / fixtures in the database.
 
     """
-    model = models.capture.Capture(
+    model_capture = models.Capture(
         path='../media/Screenshot from 2020-12-02 14-26-41.png',
-        created_at=datetime.datetime.now().strftime('%d/%m/%Y %H:$m'),
+        created_at=datetime.datetime.now().strftime('%d/%m/%Y %H:%M'),
         camera='abc'
     )
-    dbsession.add(model)
+    model_user = models.User(
+        username='admin',
+        password='admin',
+    )
+    dbsession.add(model_capture)
+    dbsession.add(model_user)
 
 
 def parse_args(argv):
