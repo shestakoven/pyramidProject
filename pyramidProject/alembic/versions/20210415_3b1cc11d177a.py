@@ -1,8 +1,8 @@
 """init
 
-Revision ID: aa7c6c80b87c
+Revision ID: 3b1cc11d177a
 Revises: 
-Create Date: 2021-04-15 15:41:42.181096
+Create Date: 2021-04-15 22:25:18.387275
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'aa7c6c80b87c'
+revision = '3b1cc11d177a'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -33,7 +33,7 @@ def upgrade():
     )
     op.create_table('users',
     sa.Column('password', sa.Unicode(length=128), nullable=False),
-    sa.Column('hash_algorithm', sa.Enum('shake_128', 'md5', 'blake2s', 'sha3_224', 'sha384', 'sha3_256', 'sha3_384', 'shake_256', 'blake2b', 'sha3_512', 'sha512', 'sha224', 'sha256', 'sha1', name='hash_algorithms_enum'), nullable=False),
+    sa.Column('hash_algorithm', sa.Enum('shake_128', 'sha256', 'sha3_224', 'shake_256', 'md5', 'blake2b', 'blake2s', 'sha3_256', 'sha384', 'sha3_384', 'sha3_512', 'sha512', 'sha1', 'sha224', name='hash_algorithms_enum'), nullable=False),
     sa.Column('salt', sa.Unicode(length=128), nullable=False),
     sa.Column('reset_key', sa.String(length=255), nullable=True),
     sa.Column('email', sa.Unicode(length=254), nullable=False),

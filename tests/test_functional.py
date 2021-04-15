@@ -1,11 +1,8 @@
 from pyramidProject import models
 
-def test_my_view_success(testapp, dbsession):
-    model = models.Capture(name='one', value=55)
-    dbsession.add(model)
-    dbsession.flush()
+def test_redirect(testapp, dbsession):
 
-    res = testapp.get('/', status=200)
+    res = testapp.get('/', status=302)
     assert res.body
 
 def test_notfound(testapp):
