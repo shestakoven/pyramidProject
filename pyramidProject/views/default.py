@@ -1,11 +1,16 @@
-from pyramid.view import view_config
+from pyramid.view import view_config, view_defaults
 from pyramid.response import Response
+from pyramid.security import Authenticated
 from sqlalchemy.exc import SQLAlchemyError
 
 from ..models import models
 
 
-@view_config(route_name='home', renderer='pyramidProject:templates/mytemplate.jinja2')
+@view_config(
+    route_name='home',
+    permission=Authenticated,
+    renderer='pyramidProject:templates/mytemplate.jinja2',
+)
 def my_view(request):
     try:
         query = request.dbsession.query(models.Capture)
@@ -13,6 +18,7 @@ def my_view(request):
     except SQLAlchemyError:
         return Response(db_err_msg, content_type='text/plain', status=500)
     return {'captures': captures, 'project': 'pyramidProject'}
+
 
 db_err_msg = """\
 Pyramid is having a problem using your SQL database.  The problem

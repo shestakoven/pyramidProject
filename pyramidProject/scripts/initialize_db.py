@@ -2,7 +2,6 @@ import argparse
 import datetime
 import sys
 
-import pyramid_fullauth.models
 from pyramid.paster import bootstrap, setup_logging
 from sqlalchemy.exc import OperationalError
 
