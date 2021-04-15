@@ -24,3 +24,4 @@ test
 # Project exclude paths
 /venv/
 /pyramidProject/media/
+*.sqlite-journal

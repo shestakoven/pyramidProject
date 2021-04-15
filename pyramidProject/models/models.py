@@ -5,7 +5,8 @@ from sqlalchemy import (
     String,
 )
 
-from .meta import Base
+from pyramid_basemodel import Base
+from pyramid_fullauth.models import User
 
 
 class Capture(Base):
@@ -16,11 +17,4 @@ class Capture(Base):
     camera = Column('camera', String)
 
 
-class User(Base):
-    __tablename__ = 'users'
-    id = Column(Integer, primary_key=True)
-    username = Column('username', String, unique=True)
-    password = Column('password', String)
-
-
-Index('index_id', Capture.id, unique=True, mysql_length=255)
+Index('capture_id', Capture.id, unique=True, mysql_length=255)

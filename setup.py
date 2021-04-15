@@ -9,8 +9,9 @@ with open(os.path.join(here, 'CHANGES.txt')) as f:
     CHANGES = f.read()
 
 requires = [
+    'bcrypt',
     'plaster_pastedeploy',
-    'pyramid',
+    'pyramid==1.10',
     'pyramid_jinja2',
     'pyramid_debugtoolbar',
     'waitress',
@@ -20,6 +21,7 @@ requires = [
     'SQLAlchemy',
     'transaction',
     'zope.sqlalchemy',
+    'pyramid-fullauth',
 ]
 
 tests_require = [

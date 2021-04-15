@@ -2,6 +2,7 @@ import argparse
 import datetime
 import sys
 
+import pyramid_fullauth.models
 from pyramid.paster import bootstrap, setup_logging
 from sqlalchemy.exc import OperationalError
 
@@ -18,12 +19,7 @@ def setup_models(dbsession):
         created_at=datetime.datetime.now().strftime('%d/%m/%Y %H:%M'),
         camera='abc'
     )
-    model_user = models.User(
-        username='admin',
-        password='admin',
-    )
     dbsession.add(model_capture)
-    dbsession.add(model_user)
 
 
 def parse_args(argv):

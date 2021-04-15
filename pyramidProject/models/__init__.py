@@ -5,7 +5,8 @@ import zope.sqlalchemy
 
 # Import or define all models here to ensure they are attached to the
 # ``Base.metadata`` prior to any initialization routines.
-from .models import Capture, User  # flake8: noqa
+from .models import Capture  # flake8: noqa
+from pyramid_fullauth.models import User
 
 # Run ``configure_mappers`` after defining all of the models to ensure
 # all relationships can be setup.

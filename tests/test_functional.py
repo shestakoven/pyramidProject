@@ -1,7 +1,7 @@
 from pyramidProject import models
 
 def test_my_view_success(testapp, dbsession):
-    model = models.MyModel(name='one', value=55)
+    model = models.Capture(name='one', value=55)
     dbsession.add(model)
     dbsession.flush()
 

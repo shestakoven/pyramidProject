@@ -8,5 +8,7 @@ def main(global_config, **settings):
         config.include('pyramid_jinja2')
         config.include('.routes')
         config.include('.models')
+        config.include('pyramid_basemodel')
+        config.include('pyramid_fullauth')
         config.scan()
     return config.make_wsgi_app()
