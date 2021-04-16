@@ -1,4 +1,7 @@
 from pyramid.config import Configurator
+from pyramid_fullauth.events import AfterRegister
+
+from .subscribers import commit_db
 
 
 def main(global_config, **settings):
@@ -11,5 +14,6 @@ def main(global_config, **settings):
         config.include('.models')
         config.include('pyramid_basemodel')
         config.include('pyramid_fullauth')
+        config.add_subscriber(commit_db, AfterRegister)
         config.scan()
     return config.make_wsgi_app()

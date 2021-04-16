@@ -6,10 +6,10 @@ from sqlalchemy import (
 )
 
 from pyramid_basemodel import Base
-from pyramid_fullauth.models import User
 
 
 class Capture(Base):
+    """Model for captures. Path is path to local file."""
     __tablename__ = 'captures'
     id = Column(Integer, primary_key=True)
     path = Column('path', String)

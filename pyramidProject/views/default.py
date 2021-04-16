@@ -1,6 +1,5 @@
-from pyramid.view import view_config, view_defaults
+from pyramid.view import view_config
 from pyramid.response import Response
-from pyramid.security import Authenticated
 from sqlalchemy.exc import SQLAlchemyError
 
 from ..models import models
@@ -8,10 +7,11 @@ from ..models import models
 
 @view_config(
     route_name='home',
-    permission=Authenticated,
+    permission='view',
     renderer='pyramidProject:templates/mytemplate.jinja2',
 )
-def my_view(request):
+def captures_view(request):
+    """View all captures from db for authenticated users."""
     try:
         query = request.dbsession.query(models.Capture)
         captures = query.all()
