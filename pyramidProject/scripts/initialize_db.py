@@ -15,8 +15,7 @@ def setup_models(dbsession):
     """
     model_capture = models.Capture(
         path='../media/Screenshot from 2020-12-02 14-26-41.png',
-        created_at=datetime.datetime.now().strftime('%d/%m/%Y %H:%M'),
-        camera='abc'
+        camera='abc',
     )
     dbsession.add(model_capture)
 

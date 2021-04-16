@@ -9,7 +9,6 @@ with open(os.path.join(here, 'CHANGES.txt')) as f:
     CHANGES = f.read()
 
 requires = [
-    'bcrypt',
     'plaster_pastedeploy',
     'pyramid==1.10',
     'pyramid_jinja2',
@@ -57,6 +56,7 @@ setup(
             'main = pyramidProject:main',
         ],
         'console_scripts': [
+            'initialize_pyramidProject_db=pyramidProject.scripts.make_media_dir:create_dir',
             'initialize_pyramidProject_db=pyramidProject.scripts.initialize_db:main',
         ],
     },
