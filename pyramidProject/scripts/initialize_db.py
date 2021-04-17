@@ -1,5 +1,4 @@
 import argparse
-import datetime
 import sys
 
 from pyramid.paster import bootstrap, setup_logging

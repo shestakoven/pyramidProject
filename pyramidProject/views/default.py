@@ -8,7 +8,7 @@ from ..models import models
 @view_config(
     route_name='home',
     permission='view',
-    renderer='pyramidProject:templates/mytemplate.jinja2',
+    renderer='pyramidProject:templates/home.jinja2',
 )
 def captures_view(request):
     """View all captures from db for authenticated users."""
