@@ -13,7 +13,7 @@ PATH_TO_FOLDER = os.path.join('pyramidProject', 'media')
 # Вместо "0" указать адрес камеры, например rtsp://username:password@192.168.1.2/h264_stream
 PATH_TO_CAM = 0
 # Период сохранения изображения с камеры
-SAVE_PERIOD = 5
+SAVE_PERIOD = 15
 
 
 def main():
